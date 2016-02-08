@@ -15,11 +15,10 @@ Main component versions used:
 
 
 Identity manager middleware is accessible at:
-*http://localhost:44333/idm*
+> *http://localhost:44333/idm*
 
 IdentityServer.Admin middleware is accessible at:
-*http://localhost:44333/adm*
-
+> *http://localhost:44333/adm*
 
 ###### Note:
 After first run there is new default user account created:
