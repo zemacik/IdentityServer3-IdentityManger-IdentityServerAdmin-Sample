@@ -220,7 +220,6 @@
     <Compile Include="ConfigIdentityServer\CustomUserService.cs" />
     <Compile Include="ConfigIdentityServer\DefaultClients.cs" />
     <Compile Include="ConfigIdentityServer\DefaultScopes.cs" />
-    <Compile Include="ConfigIdentityServer\DefaultUsers.cs" />
     <Compile Include="ConfigIdentityServer\Factory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

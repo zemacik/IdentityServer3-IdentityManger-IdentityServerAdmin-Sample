@@ -28,24 +28,18 @@ namespace MyIdentityServer
 
       JwtSecurityTokenHandler.InboundClaimTypeMap = new Dictionary<string, string>();
 
-      //Trebalo nainstalovat : Microsoft.Owin.Security.Cookies
       appBuilder.UseCookieAuthentication(new CookieAuthenticationOptions
       {
         AuthenticationType = "Cookies",
         LoginPath = new PathString("/Home/Login")
       });
 
-      ////Microsoft.AspNet.Identity.Owin
-      //appBuilder.UseExternalSignInCookie(Microsoft.AspNet.Identity.DefaultAuthenticationTypes.ExternalCookie);
-
-      // Trebalo nainstalovat : 
-      //   Microsoft.Owin.Security.OpenIdConnect (Microsoft.IdentityModel.Protocol.Extensions, Microsoft.IdentityModel.Tokens.Jwt)
       appBuilder.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
       {
         AuthenticationType = "oidc",
         Authority = "https://localhost:44333",
         ClientId = "idmgr_and_idadmin",
-        RedirectUri = "https://localhost:44333", // tu moze byt cokolvek dovoluje dany klient v definicii klienta "idmgr_and_idadmin"
+        RedirectUri = "https://localhost:44333",
         ResponseType = "id_token",
         UseTokenLifetime = false,
         Scope = "openid idmgr idAdmin",
@@ -122,7 +116,7 @@ namespace MyIdentityServer
         {
           Factory = ConfigIdentityServer.Factory.Configure(connString),
           SigningCertificate = Certificate.Get(),
-          RequireSsl = false
+          RequireSsl = true
         };
 
         appBuilder.UseIdentityServer(idsrvOptions);
